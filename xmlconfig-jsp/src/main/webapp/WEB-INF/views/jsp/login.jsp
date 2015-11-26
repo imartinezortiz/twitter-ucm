@@ -24,7 +24,7 @@
 	<div class="container">
 	<c:url value="/doLogin" var="loginUrl" />
 
-	<form:form action="${loginUrl}" method="POST" class="form-signin">
+	<form action="${loginUrl}" method="POST" class="form-signin">
         <h2 class="form-signin-heading">Please sign in</h2>
         <label for="inputUsername" class="sr-only">Username</label>
         <input type="text" id="inputUsername" name="username" class="form-control" placeholder="Username, email" required="" autofocus="">
@@ -36,7 +36,10 @@
           </label>
         </div>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-      </form:form>
+        <input type="hidden"
+	name="${_csrf.parameterName}"
+	value="${_csrf.token}"/>
+      </form>
 
 		<footer><p>© FDI 2015</p></footer>
 	</div>
