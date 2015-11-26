@@ -1,5 +1,4 @@
 <%@ page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8" session="false"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="tags" tagdir="/WEB-INF/tags" %>
@@ -22,7 +21,7 @@
 </head>
 <body>
 	<div class="container">
-	<c:url value="/doLogin" var="loginUrl" />
+	<spring:url value="/doLogin" var="loginUrl" />
 
 	<form action="${loginUrl}" method="POST" class="form-signin">
         <h2 class="form-signin-heading">Please sign in</h2>

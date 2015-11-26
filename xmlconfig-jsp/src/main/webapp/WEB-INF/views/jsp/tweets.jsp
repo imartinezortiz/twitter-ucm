@@ -32,7 +32,7 @@
 </sec:authorize>
 <sec:authorize access="isAuthenticated()">
 
-<c:url var="logoutUrl" value="/doLogout"/>
+<spring:url var="logoutUrl" value="/doLogout"/>
 <form action="${logoutUrl}" method="POST">
 <button type="submit" class="btn btn-primary">Logout</button>
 <input type="hidden"

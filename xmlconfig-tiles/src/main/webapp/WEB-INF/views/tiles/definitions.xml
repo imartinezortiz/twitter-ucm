@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+"http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+	<definition name="baseLayout"
+		template="/WEB-INF/views/tiles/layout/base.jsp">
+		<put-attribute name="title" value="Twitter UCM" />
+		<put-attribute name="navigation" value="/WEB-INF/views/tiles/layout/navigation.jsp" />
+		<put-attribute name="content" value="" />
+		<put-attribute name="footer" value="/WEB-INF/views/tiles/layout/footer.jsp" />
+	</definition>
+	
+	<definition name="login" extends="baseLayout">
+		<put-attribute name="navigation" value="" />
+		<put-attribute name="content" value="/WEB-INF/views/tiles/login.jsp" />
+	</definition>
+	
+	<definition name="userRegistration" extends="baseLayout">
+		<put-attribute name="navigation" value="" />
+		<put-attribute name="content" value="/WEB-INF/views/tiles/userRegistration.jsp" />
+	</definition>
+	
+	<definition name="userRegistrationCompleted" extends="baseLayout">
+		<put-attribute name="navigation" value="" />
+		<put-attribute name="content" value="/WEB-INF/views/tiles/userRegistrationCompleted.jsp" />
+	</definition>
+	
+	<definition name="tweets" extends="baseLayout">
+		<put-attribute name="content" value="/WEB-INF/views/tiles/tweets.jsp" />
+	</definition>
+</tiles-definitions>
