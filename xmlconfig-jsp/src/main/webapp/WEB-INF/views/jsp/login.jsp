@@ -26,9 +26,9 @@
 	<form action="${loginUrl}" method="POST" class="form-signin">
         <h2 class="form-signin-heading">Please sign in</h2>
         <label for="inputUsername" class="sr-only">Username</label>
-        <input type="text" id="inputUsername" name="username" class="form-control" placeholder="Username, email" required="" autofocus="">
+        <input type="text" id="inputUsername" name="username" class="form-control" placeholder="Username, email" required="required" autofocus="autofocus">
         <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required="">
+        <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required="required">
         <div class="checkbox">
           <label>
             <input type="checkbox" name="_spring_security_remember_me" value="remember-me"> Remember me
