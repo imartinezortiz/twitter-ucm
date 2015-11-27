@@ -16,6 +16,16 @@
 		<!-- This properties must be overridden in ~/.m2/settings.xml -->
 		<rememberMe.secret>rememberMeKeyChangeMe</rememberMe.secret>
 	</properties>
+	<repositories>
+		<repository>
+			<id>nexusoss-stating</id>
+			<name>Nexus OSS staging</name>
+			<url>https://oss.sonatype.org/content/groups/staging</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
