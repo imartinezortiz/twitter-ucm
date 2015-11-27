@@ -25,8 +25,8 @@
 	<div class="container">
 		<fieldset>
   			<legend>New User:</legend>
-  			<c:url var="newUserUrl" value="/users" />
-			<form:form commandName="newUser" action="${newUserUrl}">
+  			<c:url var="createUserUrl" value="/users" />
+			<form:form commandName="createUser" action="${createUserUrl}">
 				<div><form:label path="username">Username: </form:label><form:input type="text" path="username" />
 				<form:errors path="username" /></div>
 				<div><form:label path="email">Email: </form:label><form:input type="email" path="email" />

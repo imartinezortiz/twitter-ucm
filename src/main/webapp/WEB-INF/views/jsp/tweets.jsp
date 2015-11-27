@@ -47,7 +47,7 @@
 <sec:authorize access="isAuthenticated()">
 		<fieldset>
   			<legend>Write something:</legend>
-			<form:form commandName="newTweet">
+			<form:form commandName="createTweet">
 				<form:textarea path="message"></form:textarea>
 				<form:errors path="message" />
 				<form:button type="submit" class="btn btn-lg btn-primary">Tweet</form:button>

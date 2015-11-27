@@ -7,6 +7,7 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -34,17 +35,16 @@ public class UsersManagementController {
 			view.addObject("username", username);
 		} else {
   		view = new ModelAndView("userRegistration");
-  		view.addObject("newUser", new CreateUser());
+  		view.addObject("createUser", new CreateUser());
 		}
 		return view;
 	}
 	
 	@RequestMapping(path="/users", method=RequestMethod.POST)
-	public ModelAndView createUser(@Valid CreateUser newUser, BindingResult errors) {
+	public ModelAndView createUser(@ModelAttribute("createUser") @Valid CreateUser newUser, BindingResult errors) {
 		ModelAndView view = null;
 		if (errors.hasErrors()) {
-			view = new ModelAndView("newUser");
-			view.addObject("newUser", newUser);
+			view = new ModelAndView("userRegistration");
 		} else {
 			User user = usersManager.createUser(newUser);
 			view = new ModelAndView(fromPath("/users/registration").scheme("redirect").queryParam("username", user.getUsername()).queryParam("success", "true").build().toUriString());
