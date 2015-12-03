@@ -44,6 +44,7 @@ public class TwitterController {
 		ModelAndView view = null;
 		if (errors.hasErrors()) {
 			view = new ModelAndView("tweets");
+			view.addObject("tweets", this.tweets.getTweets());
 		} else {
 			tweets.newTweet(tweetForm.getMessage(), usuarios.getCurrentUser().getUsername());
 			view = new ModelAndView("redirect:/tweets");
