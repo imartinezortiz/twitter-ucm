@@ -59,7 +59,7 @@
 		<h1>List of recent posts</h1>
 		<ul class="list-unstyled">
 <c:forEach items="${tweets}" var="tweet">
-			<li><div><p><c:out value="${tweet.message}" /></p><p><em>Publicado por <c:out value="${tweet.username}" /> el <tags:localDate date="${tweet.date}"/></em></p></div></li>
+			<li><div><p><c:out value="${tweet.message}" /></p><p><em>Published by <c:out value="${tweet.username}" /> at <tags:localDate date="${tweet.date}"/></em></p></div></li>
 </c:forEach>
 		</ul>
 		<footer><p>© FDI 2015</p></footer>

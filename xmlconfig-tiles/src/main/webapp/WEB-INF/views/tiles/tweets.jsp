@@ -25,7 +25,7 @@
 					<c:out value="${tweet.message}" />
 				</p>
 				<p>
-					<em>Publicado por <c:out value="${tweet.username}" /> el <tags:localDate
+					<em>Published by <c:out value="${tweet.username}" /> at <tags:localDate
 							date="${tweet.date}" /></em>
 				</p>
 			</div></li>
