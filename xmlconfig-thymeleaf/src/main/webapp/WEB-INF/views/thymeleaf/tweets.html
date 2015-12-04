@@ -52,7 +52,7 @@
 		<!--/*/ </th:block> /*/-->
 		<h1>List of recent posts</h1>
 		<ul class="list-unstyled" th:each="tweet : ${tweets}">
-			<li><div><p th:text="${tweet.message}">Hello world !.</p><p><em>Published by <span th:text="${tweet.username}">imartinez</span> at <span th:text="${tweet.date}">02/12/2015 20:35:10</span></em></p></div></li>
+			<li><div><p th:text="${tweet.message}">Hello world !.</p><p><em>Published by <span th:text="${tweet.username}">imartinez</span> at <span th:text="${#temporals.format(tweet.date, 'dd/MM/yyyy HH:mm:ss')}">02/12/2015 20:35:10</span></em></p></div></li>
 		</ul>
 		<footer><p>© FDI 2015</p></footer>
 	</div>
