@@ -28,7 +28,7 @@ public class TwitterManagerTestCase {
 		TweetsRepository repository = mock(TweetsRepository.class);
 		TimeService time = mock(TimeService.class);
 
-		when(repository.addTweet(any(Tweet.class))).thenAnswer(new ReturnsArgumentAt(0));
+		when(repository.save(any(Tweet.class))).thenAnswer(new ReturnsArgumentAt(0));
 
 		TweetsManager manager = new TweetsManager(repository, time);
 
@@ -37,7 +37,7 @@ public class TwitterManagerTestCase {
 
 		// Then
 		assertThat(t, not(is(nullValue())));
-		verify(repository, times(1)).addTweet(t);
+		verify(repository, times(1)).save(t);
 		verify(time, times(1)).now();
 	}
 
@@ -77,7 +77,7 @@ public class TwitterManagerTestCase {
 		TweetsRepository repository = mock(TweetsRepository.class);
 		TimeService time = mock(TimeService.class);
 
-		when(repository.addTweet(any(Tweet.class))).thenAnswer(new ReturnsArgumentAt(0));
+		when(repository.save(any(Tweet.class))).thenAnswer(new ReturnsArgumentAt(0));
 
 		TweetsManager manager = swallowExceptions(new TweetsManager(repository, time));
 

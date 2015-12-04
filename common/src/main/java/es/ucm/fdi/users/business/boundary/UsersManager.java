@@ -26,7 +26,7 @@ public class UsersManager implements UserDetailsService {
 	}
 	
 	public User getUser(long idUsuario) {
-		return users.getUser(idUsuario);
+		return users.findOne(idUsuario);
 	}
 
 	public User getCurrentUser() {

@@ -3,8 +3,6 @@ package es.ucm.fdi.twitter.business.boundary;
 import static com.google.common.base.Preconditions.checkArgument;
 import static com.google.common.base.Preconditions.checkNotNull;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
@@ -31,8 +29,8 @@ public class TweetsManager {
 		this.time = time;
 	}
 
-	public List<Tweet> getTweets() {
-		return this.repo.getTweets();
+	public Iterable<Tweet> getTweets() {
+		return this.repo.findAll();
 	}
 
 	@PreAuthorize("hasRole('ROLE_USER')")
@@ -43,6 +41,6 @@ public class TweetsManager {
 				"msg length must be between 0 and %i: actual length is %i", Tweet.MAX_LENGTH, msg.length());
 
 		Tweet newTweet = new Tweet(time.now(), msg, username);
-		return this.repo.addTweet(newTweet);
+		return this.repo.save(newTweet);
 	}
 }

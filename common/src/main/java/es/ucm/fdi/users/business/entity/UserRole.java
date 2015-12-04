@@ -2,10 +2,14 @@ package es.ucm.fdi.users.business.entity;
 
 import java.io.Serializable;
 
+import javax.persistence.Basic;
+import javax.persistence.Embeddable;
+import javax.persistence.Table;
 
 import org.springframework.security.core.GrantedAuthority;
-;
 
+@Embeddable
+@Table(name="USER_ROLES")
 public class UserRole implements GrantedAuthority, Serializable {
 
 	/**
@@ -13,6 +17,7 @@ public class UserRole implements GrantedAuthority, Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	
+	@Basic
 	private String role;
 	
 	UserRole() {

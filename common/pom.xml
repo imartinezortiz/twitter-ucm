@@ -58,6 +58,23 @@
 		</dependency>
 
 		<!-- -->
+		<!-- JPA API dependency -->
+		<!-- -->
+
+		<dependency>
+			<groupId>org.hibernate.javax.persistence</groupId>
+			<artifactId>hibernate-jpa-2.1-api</artifactId>
+		</dependency>
+		
+		<!-- -->
+		<!-- Spring Data JPA support (only for repository interfaces)-->
+		<!-- -->
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-jpa</artifactId>
+		</dependency>
+		
+		<!-- -->
 		<!-- Logging -->
 		<!-- -->
 		<dependency>
