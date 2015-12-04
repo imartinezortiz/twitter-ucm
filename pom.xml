@@ -11,7 +11,9 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<spring.version>4.2.3.RELEASE</spring.version>
 		<spring.security.version>4.0.3.RELEASE</spring.security.version>
+		<spring.data.version>1.9.1.RELEASE</spring.data.version>
 		<thymeleaf.version>3.0.0.BETA01</thymeleaf.version>
+		<hibernate.version>5.0.4.Final</hibernate.version>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<!-- This properties must be overridden in ~/.m2/settings.xml -->
@@ -33,14 +35,14 @@
 				<enabled>true</enabled>
 			</snapshots>
 		</repository>
-	    <repository>
-	        <id>sonatype-nexus-snapshots</id>
-	        <name>Sonatype Nexus Snapshots</name>
-	        <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-	        <snapshots>
-	            <enabled>true</enabled>
-	        </snapshots>
-	    </repository>
+		<repository>
+			<id>sonatype-nexus-snapshots</id>
+			<name>Sonatype Nexus Snapshots</name>
+			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
 	</repositories>
 	<dependencyManagement>
 		<dependencies>
@@ -110,6 +112,60 @@
 				<groupId>org.springframework.security</groupId>
 				<artifactId>spring-security-crypto</artifactId>
 				<version>${spring.security.version}</version>
+			</dependency>
+
+			<!-- -->
+			<!-- Spring Data JPA -->
+			<!-- -->
+			<dependency>
+				<groupId>org.springframework.data</groupId>
+				<artifactId>spring-data-jpa</artifactId>
+				<version>${spring.data.version}</version>
+			</dependency>
+
+			<!-- -->
+			<!-- DB Connection Pool -->
+			<!-- -->
+			<dependency>
+				<groupId>com.zaxxer</groupId>
+				<artifactId>HikariCP</artifactId>
+				<version>2.4.3</version>
+			</dependency>
+
+			<!-- -->
+			<!-- JPA API dependency -->
+			<!-- -->
+
+			<dependency>
+				<groupId>org.hibernate.javax.persistence</groupId>
+				<artifactId>hibernate-jpa-2.1-api</artifactId>
+				<version>1.0.0.Final</version>
+			</dependency>
+
+			<!-- -->
+			<!-- Hibernate dependencies -->
+			<!-- -->
+
+			<dependency>
+				<groupId>javax.transaction</groupId>
+				<artifactId>jta</artifactId>
+				<version>1.1</version>
+			</dependency>
+
+			<!-- -->
+			<!-- Hibernate dependencies -->
+			<!-- -->
+
+			<dependency>
+				<groupId>org.hibernate</groupId>
+				<artifactId>hibernate-core</artifactId>
+				<version>${hibernate.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.hibernate</groupId>
+				<artifactId>hibernate-entitymanager</artifactId>
+				<version>${hibernate.version}</version>
 			</dependency>
 
 			<!-- -->
