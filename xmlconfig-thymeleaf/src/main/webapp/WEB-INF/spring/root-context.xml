@@ -13,4 +13,6 @@
 	<context:component-scan base-package="es.ucm.fdi.users.demo" />
 	<context:component-scan base-package="es.ucm.fdi.twitter.business" />
 	<context:component-scan base-package="es.ucm.fdi.users.business" />
+	
+	<context:property-placeholder location="classpath:security.properties" />
 </beans>
