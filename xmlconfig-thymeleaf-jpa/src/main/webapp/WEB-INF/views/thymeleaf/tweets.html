@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- CSS -->
+	<link rel="stylesheet"
+		href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+		th:href="@{/webjars/bootstrap/3.0.0/css/bootstrap.min.css}">
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+	<script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	<script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+	<title>Twitter UCM</title>
+</head>
+<body>
+	<div class="container">
+		<div class="header clearfix">
+			<nav>
+				<ul class="nav nav-pills pull-right">
+					<!--/*/ <th:block sec:authorize="isAnonymous()"> /*/-->
+		            <li role="presentation" class="active"><a href="#" th:href="@{/login}">Sign in</a></li>
+		            <li role="presentation"><a href="#" th:href="@{/users/registration}">Register</a></li>
+					<!--/*/ </th:block> /*/-->
+					<!--/*/ <th:block sec:authorize="isAuthenticated()"> /*/-->
+					<li role="presentation">
+						<form action="#" th:action="@{/doLogout}" method="POST">
+							<button type="submit" class="btn btn-primary">Logout</button>
+							<input type="hidden"
+								th:name="${_csrf.parameterName}"
+								th:value="${_csrf.token}"/>
+						</form>
+					</li>
+					<!--/*/ </th:block> /*/-->
+	          </ul>
+	        </nav>
+			<h3 class="text-muted">Welcome to Twitter UCM</h3>
+		</div>
+		<!--/*/ <th:block sec:authorize="isAuthenticated()"> /*/-->
+		<form action="#" th:action="@{/tweets}" th:object="${createTweet}" method="POST">
+			<div class="form-group" th:classappend="${#fields.hasErrors('message')} ? has-error">
+				<label for="inputMessage">Write something:</label>
+				<textarea id="inputMessage" th:field="*{message}" class="form-control" placeholder="message"></textarea>
+				<span class="help-block" th:errors="*{message}">[errors]</span>
+            </div>
+			<button type="submit" class="btn btn-primary">Tweet</button>
+			<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+		</form>
+		<!--/*/ </th:block> /*/-->
+		<h1>List of recent posts</h1>
+		<ul class="list-unstyled" th:each="tweet : ${tweets}">
+			<li><div><p th:text="${tweet.message}">Hello world !.</p><p><em>Published by <span th:text="${tweet.username}">imartinez</span> at <span th:text="${tweet.date}">02/12/2015 20:35:10</span></em></p></div></li>
+		</ul>
+		<footer><p>© FDI 2015</p></footer>
+	</div>
+	<!-- JS -->
+	<script 
+		src="//code.jquery.com/jquery-2.1.1.min.js"
+		th:src="@{/webjars/jquery/2.1.1/jquery.min.js}"></script>
+	<script
+		src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"
+		th:src="@{/webjars/bootstrap/3.0.0/js/bootstrap.min.js}"></script>
+</body>
+</html>

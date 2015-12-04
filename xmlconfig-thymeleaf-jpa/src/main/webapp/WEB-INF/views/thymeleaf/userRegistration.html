@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- CSS -->
+	<link rel="stylesheet"
+		href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+		th:href="@{/webjars/bootstrap/3.0.0/css/bootstrap.min.css}">
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+	<script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	<script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+	<title>Twitter UCM</title>
+</head>
+<body>
+	<div class="container">
+		<fieldset>
+  			<legend>New User:</legend>
+			<form th:object="${createUser}" action="#" th:action="@{/users}" method="POST">
+				<div class="form-group" th:classappend="${#fields.hasErrors('username')} ? has-error">
+					<label for="inputUsername">Username: </label>
+					<input id="inputUsername" type="text" class="form-control" placeholder="Username" th:field="*{username}"/>
+					<span class="help-block" th:errors="*{username}">[errors]</span>
+				</div>
+				<div class="form-group" th:classappend="${#fields.hasErrors('email')} ? has-error">
+					<label for="inputEmail">Email: </label>
+					<input id="inputEmail" type="email" class="form-control" placeholder="Email" th:field="*{email}"/>
+					<span class="help-block" th:errors="*{email}">[errors]</span>
+				</div>
+				<div class="form-group" th:classappend="${#fields.hasErrors('password')} ? has-error">
+					<label for="inputPassword">Password: </label>
+					<input id="inputPassword" type="password" class="form-control" placeholder="Password" th:field="*{password}"/>
+					<span class="help-block" th:errors="*{password}">[errors]</span>
+				</div>
+
+				<div><button type="submit" class="btn btn-primary">Register</button></div>
+			</form>
+		</fieldset>
+		<footer><p>© FDI 2015</p></footer>
+	</div>
+	<!-- JS -->
+	<script 
+		src="//code.jquery.com/jquery-2.1.1.min.js"
+		th:src="@{/webjars/jquery/2.1.1/jquery.min.js}"></script>
+	<script
+		src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"
+		th:src="@{/webjars/bootstrap/3.0.0/js/bootstrap.min.js}"></script>
+</body>
+</html>

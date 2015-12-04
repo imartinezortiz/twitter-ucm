@@ -25,6 +25,7 @@
 		<module>xmlconfig-jsp</module>
 		<module>xmlconfig-tiles</module>
 		<module>xmlconfig-thymeleaf</module>
+		<module>xmlconfig-thymeleaf-jpa</module>
 	</modules>
 	<repositories>
 		<repository>

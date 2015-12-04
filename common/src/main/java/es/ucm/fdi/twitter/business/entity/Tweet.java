@@ -31,6 +31,10 @@ public class Tweet implements Cloneable {
 	@NotNull
 	private String username;
 	
+	Tweet() {
+		
+	}
+	
 	public Tweet(LocalDateTime date, String message, String username) {
 		this.date = date;
 		this.message = message;
