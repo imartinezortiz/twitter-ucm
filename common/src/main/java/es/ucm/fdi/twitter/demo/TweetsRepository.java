@@ -22,6 +22,7 @@ public class TweetsRepository implements es.ucm.fdi.twitter.business.control.Twe
 		this.entities = new HashMap<>();
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public <S extends Tweet> S save(S entity) {
 		S result = (S) entity.copy();

@@ -64,6 +64,7 @@ public class UserRepository implements es.ucm.fdi.users.business.control.UserRep
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public <S extends User> S save(S entity) {
 		S result = (S) entity.copy();
