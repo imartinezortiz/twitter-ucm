@@ -13,7 +13,7 @@
 		<spring.security.version>4.0.3.RELEASE</spring.security.version>
 		<spring.data.version>1.9.1.RELEASE</spring.data.version>
 		<thymeleaf.version>3.0.0.BETA01</thymeleaf.version>
-		<hibernate.version>5.0.4.Final</hibernate.version>
+		<hibernate.version>5.0.5.Final</hibernate.version>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<!-- This properties must be overridden in ~/.m2/settings.xml -->
