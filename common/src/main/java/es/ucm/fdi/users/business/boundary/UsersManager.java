@@ -7,6 +7,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import es.ucm.fdi.users.business.control.UserRepository;
 import es.ucm.fdi.users.business.entity.User;
@@ -25,6 +26,7 @@ public class UsersManager implements UserDetailsService {
 		this.passwordEncoder = passwordEncoder;
 	}
 	
+	@Transactional(readOnly=true)
 	public User getUser(long idUsuario) {
 		return users.findOne(idUsuario);
 	}
@@ -38,6 +40,7 @@ public class UsersManager implements UserDetailsService {
 	}
 
 	@Override
+	@Transactional(readOnly=true)
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		
 		UserDetails user = users.findByEmail(username);
@@ -52,6 +55,7 @@ public class UsersManager implements UserDetailsService {
 		return user;
 	}
 
+	@Transactional(readOnly=false)
 	public User createUser(CreateUser newUser) {
 		User user = new User(newUser.getUsername(), newUser.getEmail());
 		user.addRole(new UserRole("ROLE_USER"));

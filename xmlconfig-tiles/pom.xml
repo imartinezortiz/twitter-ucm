@@ -17,7 +17,13 @@
 			<artifactId>twitter-ucm-common</artifactId>
 			<version>${project.version}</version>
 		</dependency>
-
+		
+		<dependency>
+			<groupId>es.ucm.fdi</groupId>
+			<artifactId>twitter-ucm-repositories-inmemory</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		
 		<dependency>
 			<groupId>es.ucm.fdi</groupId>
 			<artifactId>twitter-ucm-springmvc</artifactId>

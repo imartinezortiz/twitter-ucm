@@ -1,19 +1,16 @@
-package es.ucm.fdi.users.business.control;
+package es.ucm.fdi.users.spring.data.jpa;
 
+import org.springframework.data.repository.CrudRepository;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Repository;
 
 import es.ucm.fdi.users.business.entity.User;
 
 @Repository
-public interface UserRepository {
+public interface UserRepository extends es.ucm.fdi.users.business.control.UserRepository, CrudRepository<User, Long> {
 
 	public UserDetails findByEmail(String username);
 
 	public UserDetails findByUsername(String username);
-
-	public User findOne(Long idUsuario);
-
-	public User save(User user);
 	
 }

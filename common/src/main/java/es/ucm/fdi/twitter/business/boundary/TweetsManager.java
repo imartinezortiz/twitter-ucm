@@ -6,6 +6,7 @@ import static com.google.common.base.Preconditions.checkNotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import es.ucm.fdi.twitter.business.control.TimeService;
 import es.ucm.fdi.twitter.business.control.TweetsRepository;
@@ -29,11 +30,13 @@ public class TweetsManager {
 		this.time = time;
 	}
 
+	@Transactional(readOnly=true)
 	public Iterable<Tweet> getTweets() {
 		return this.repo.findAll();
 	}
 
 	@PreAuthorize("hasRole('ROLE_USER')")
+	@Transactional(readOnly=false)
 	public Tweet newTweet(String msg, String username) {
 		checkNotNull(msg, "msg can not be null");
 		checkNotNull(username, "username can not be null");

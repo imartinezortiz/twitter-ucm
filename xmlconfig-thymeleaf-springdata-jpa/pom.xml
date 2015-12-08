@@ -8,9 +8,9 @@
 		<version>0.0.1-SNAPSHOT</version>
 		<relativePath>../pom.xml</relativePath>
 	</parent>
-	<artifactId>twitter-ucm-xmlconfig-thymeleaf-jpa</artifactId>
+	<artifactId>twitter-ucm-xmlconfig-thymeleaf-springdata-jpa</artifactId>
 	<packaging>war</packaging>
-	<name>Twitter UCM Spring MVC + XML Config + Thymeleaf + JPA</name>
+	<name>Twitter UCM Spring MVC + XML Config + Thymeleaf + Spring Data JPA</name>
 	<dependencies>
 		<dependency>
 			<groupId>es.ucm.fdi</groupId>
@@ -20,7 +20,7 @@
 		
 		<dependency>
 			<groupId>es.ucm.fdi</groupId>
-			<artifactId>twitter-ucm-repositories-jpa</artifactId>
+			<artifactId>twitter-ucm-repositories-springdata-jpa</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 		
@@ -192,7 +192,7 @@
 			</dependencies>
 			<properties>
 				<jdbc.dataSourceClassName>org.hsqldb.jdbc.JDBCDataSource</jdbc.dataSourceClassName>
-				<jdbc.url>jdbc:hsqldb:mem:app;shutdown=true</jdbc.url>
+				<jdbc.url><![CDATA[jdbc:hsqldb:mem:app;shutdown=true;hsqldb.sqllog=3]]></jdbc.url>
 				<jdbc.username>sa</jdbc.username>
 				<jdbc.password></jdbc.password>
 				<hibernate.dialect>org.hibernate.dialect.HSQLDialect</hibernate.dialect>

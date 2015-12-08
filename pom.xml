@@ -21,11 +21,15 @@
 	</properties>
 	<modules>
 		<module>common</module>
+		<module>repositories-inmemory</module>
+		<module>repositories-jpa</module>
+		<module>repositories-springdata-jpa</module>
 		<module>springmvc</module>
 		<module>xmlconfig-jsp</module>
 		<module>xmlconfig-tiles</module>
 		<module>xmlconfig-thymeleaf</module>
 		<module>xmlconfig-thymeleaf-jpa</module>
+		<module>xmlconfig-thymeleaf-springdata-jpa</module>
 	</modules>
 	<repositories>
 		<repository>
@@ -166,6 +170,12 @@
 			<dependency>
 				<groupId>org.hibernate</groupId>
 				<artifactId>hibernate-entitymanager</artifactId>
+				<version>${hibernate.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.hibernate</groupId>
+				<artifactId>hibernate-jpamodelgen</artifactId>
 				<version>${hibernate.version}</version>
 			</dependency>
 

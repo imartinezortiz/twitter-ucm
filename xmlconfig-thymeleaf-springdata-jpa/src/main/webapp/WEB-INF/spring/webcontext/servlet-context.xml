@@ -1,0 +1,68 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+	<!-- Enables Spring's context configuration using annotations  -->
+	<context:annotation-config />
+
+	<!-- Enable scan for @Controller -->
+	<context:component-scan base-package="es.ucm.fdi.twitter.web" />
+	<context:component-scan base-package="es.ucm.fdi.users.web" />
+
+	<!-- Define Spring MVC configuration using java annotations -->
+	<mvc:annotation-driven />
+
+	<!-- -->
+	<!-- DispatcherServlet serves static resources -->
+	<!-- -->
+
+	<!-- src/main/webapp/static resources -->
+	<mvc:resources mapping="/static/**" location="/static/" />
+
+	<!-- WebJars mapping mvc:resources mapping="/webjars/**" location="classpath:/META-INF/resources/webjars/"/ -->
+	<mvc:resources mapping="/webjars/**" location="/webjars/" />
+
+	<!-- -->
+	<!-- Declaring Spring-MVC's views resolvers -->
+	<!-- -->
+
+    <!-- Thymeleaf View Resolver - implementation of Spring's ViewResolver interface -->
+    <bean id="viewResolver" class="org.thymeleaf.spring4.view.ThymeleafViewResolver">
+        <property name="templateEngine" ref="templateEngine" />
+        <property name="characterEncoding" value="UTF-8" />
+    </bean>
+    
+    <!-- Thymeleaf Template Engine (Spring4-specific version) -->
+    <bean id="templateEngine" class="org.thymeleaf.spring4.SpringTemplateEngine">
+        <property name="templateResolvers">
+            <set>
+                <ref bean="templateResolver" />
+            </set>
+        </property>
+		<property name="additionalDialects">
+			<set>
+				<bean
+					class="org.thymeleaf.extras.springsecurity4.dialect.SpringSecurityDialect" />
+				<bean
+					class="org.thymeleaf.extras.java8time.dialect.Java8TimeDialect" />					
+			</set>
+		</property>
+    </bean>
+    
+    <!-- Thymeleaf Template Resolver -->
+    <bean id="templateResolver" class="org.thymeleaf.spring4.templateresolver.SpringResourceTemplateResolver">
+        <property name="prefix" value="/WEB-INF/views/thymeleaf/" />
+        <property name="suffix" value=".html" />
+        <property name="templateMode" value="HTML5" />
+		<property name="characterEncoding" value="UTF-8" />
+        <property name="cacheTTLMs" value="1000" />
+    </bean>
+</beans>
