@@ -14,7 +14,7 @@
 		placeholder="Password" required="required">
 	<div class="checkbox">
 		<label> <input type="checkbox"
-			name="_spring_security_remember_me" value="remember-me">
+			name="remember-me" value="true">
 			Remember me
 		</label>
 	</div>
