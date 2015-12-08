@@ -192,7 +192,7 @@
 			</dependencies>
 			<properties>
 				<jdbc.dataSourceClassName>org.hsqldb.jdbc.JDBCDataSource</jdbc.dataSourceClassName>
-				<jdbc.url>jdbc:hsqldb:mem:app;shutdown=true</jdbc.url>
+				<jdbc.url><![CDATA[jdbc:hsqldb:mem:app;shutdown=true;hsqldb.sqllog=3]]></jdbc.url>
 				<jdbc.username>sa</jdbc.username>
 				<jdbc.password></jdbc.password>
 				<hibernate.dialect>org.hibernate.dialect.HSQLDialect</hibernate.dialect>
