@@ -10,6 +10,9 @@
         http://www.springframework.org/schema/mvc
         http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
+	<!-- Enables Spring's context configuration using annotations  -->
+	<context:annotation-config />
+
 	<!-- Enable scan for @Controller -->
 	<context:component-scan base-package="es.ucm.fdi.twitter.web" />
 	<context:component-scan base-package="es.ucm.fdi.users.web" />

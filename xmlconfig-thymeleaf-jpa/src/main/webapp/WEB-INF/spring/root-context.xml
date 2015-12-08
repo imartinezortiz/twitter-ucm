@@ -10,6 +10,9 @@
 		http://www.springframework.org/schema/tx
 		http://www.springframework.org/schema/tx/spring-tx.xsd">
 
+	<!-- Enables Spring's context configuration using annotations -->
+	<context:annotation-config />
+
 	<context:component-scan base-package="es.ucm.fdi.twitter.spring.orm.jpa" />
 	<context:component-scan base-package="es.ucm.fdi.users.spring.orm.jpa" />
 	<context:component-scan base-package="es.ucm.fdi.twitter.business" />

@@ -9,6 +9,9 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
 
+	<!-- Enables Spring's context configuration using annotations  -->
+	<context:annotation-config />
+
 	<context:component-scan base-package="es.ucm.fdi.twitter.demo" />
 	<context:component-scan base-package="es.ucm.fdi.users.demo" />
 	<context:component-scan base-package="es.ucm.fdi.twitter.business" />
